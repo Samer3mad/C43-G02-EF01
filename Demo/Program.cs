@@ -1,4 +1,6 @@
-﻿using System.Reflection.Emit;
+﻿using Demo.Data;
+using System.Collections.Generic;
+using System.Reflection.Emit;
 
 namespace Demo
 {
@@ -83,7 +85,42 @@ namespace Demo
             /// If you need fine - grained control over database operations, ADO.NET is a good choice.
 
             #endregion
-            
+
+            #endregion
+
+            #region DbContext, DbSet, Mapping Ways
+
+            /// 1- DBContext => it's session between Your Application and the database
+            /// track changes and save data ,...
+
+            /// 2 - DbSet => represents collection of entities of specific type
+            /// ex=> DbSet<Employees> Class
+
+            /// 3 - Migration
+
+            /// 4 - change tracking
+
+            try
+            {
+
+            }
+            finally
+            {
+
+            }
+            //USing is Sugar syntax unManageResource
+            using (CompanyDBContext myCompany = new CompanyDBContext())
+            {
+
+                var emp = myCompany.MyDbSet.Where(e => e.Id == 1).FirstOrDefault();
+
+            }
+
+            ///Mapping Way
+            ///1 - By convention
+            ///2-Data Annotation
+            ///3- fluent Api
+            ///4- configuration class
             #endregion
         }
     }
